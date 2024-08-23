@@ -10,13 +10,13 @@ const io = new Server(server, {
     origin: "*",
   },
 });
+const port = process.env.PORT || 3000;
 
 io.on("connection", (socket) => {
   console.log("connected");
-  io.emit("message", "Hello from the server");
+  io.emit("message", "Hello from the server :" + port);
 });
 
-const port = process.env.PORT || 3000;
 server.listen(port, () => {
   console.log("listening on *:" + port);
 });
